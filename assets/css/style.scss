@@ -1,0 +1,81 @@
+@import "./variables";
+@import "./font";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header {
+    position: fixed;
+    width: 90vw;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    border-radius: 50px;
+    background-color: $langsedu--color--white;
+    .header--inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 50px;
+        font-family: "notosansJP";
+        nav {
+            ul {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 2.5vw;
+                li {
+                    font-weight: 600;
+                    font-size: 20px;
+                    color : $langsedu--color--black;
+                    &:first-child {
+                        color: $langsedu--color--blue;
+                    }
+                }
+            }
+        }
+        .header--button {
+            a {
+                font-weight: 700;
+                font-size: 14px;
+                padding: 15px 30px;
+                background-color: #00a91f;
+                border-radius: 50px;
+                color: $langsedu--color--white;
+            }
+        }
+    }
+}
+.bannerSection {
+    position: relative;
+    margin: 40px;
+    width: 1840px;
+    height: 820px;
+    .bannerSection--background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50px;
+            object-fit: cover;
+        }
+    }
+}
