@@ -16,32 +16,52 @@ a {
     color: inherit;
 }
 
+body{
+    background-color: #0B0B0B;
+}
 header {
     position: fixed;
-    width: 90vw;
-    top: 100px;
+    width: 90%;
+    top: 50px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
     border-radius: 50px;
     background-color: $langsedu--color--white;
+    transition: .3s;
+    &.active {
+        width: 100%;
+        top: 0;
+        border-radius: 0px;
+    }
     .header--inner {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 15px 50px;
         font-family: "notosansJP";
+        .logo {
+            cursor: pointer;
+        }
         nav {
-            ul {
+            & > ul {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 gap: 2.5vw;
+                transition: .3s;
+                &.active{
+                    gap : 4.5vw
+                }
                 li {
                     font-weight: 600;
                     font-size: 20px;
                     color : $langsedu--color--black;
-                    &:first-child {
+                    transition: .3s;
+                    &#home {
+                        color: $langsedu--color--blue;
+                    }
+                    &:hover {
                         color: $langsedu--color--blue;
                     }
                 }
@@ -55,27 +75,779 @@ header {
                 background-color: #00a91f;
                 border-radius: 50px;
                 color: $langsedu--color--white;
+                transition: .3s;
+                &:hover {
+                    color: #00a91f;
+                    background-color: $langsedu--background-color;
+                }
+            }
+        }
+    }
+    .navmenu {
+        position: relative;
+        .submenu {
+            padding: 20px 0;
+            width: 170%;
+            position: absolute;
+            bottom: -100;
+            left: 50%;
+            transform: translateX(-50%);
+            display: none;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 1000;
+            background-color: $langsedu--color--white;
+            border-radius: 0 0 10px 10px;
+            &.active {
+                display: flex;
+            }
+            li {
+                text-align: center;
+                padding: 0 10px;
+                font-size: 14px;
             }
         }
     }
 }
 .bannerSection {
     position: relative;
-    margin: 40px;
-    width: 1840px;
+    width: 95%;
     height: 820px;
+    margin: 40px auto;
+    .bannerSection--inner{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        margin: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 20px;
+        color: $langsedu--color--white;
+        .bannerSection--inner--head{
+            overflow: hidden;
+            h2 {
+                font-size: 90px;
+                letter-spacing: 0.4em;
+                font-family: "MPLUSBOLD";
+            }
+        }
+        .bannserSection--inner--detail{
+            margin-bottom: 30px;
+            .bannserSection--inner--detail__wrapper{
+                overflow: hidden;
+                p {
+                    font-size: 20px;
+                    font-family: "notosansJP";
+                    font-weight: 600;
+                }
+            }
+        }
+        .bannerSection--button{
+            overflow: hidden;
+            a { 
+                display: block;
+                width: 260px;
+                height: 70px;
+                line-height: 70px;
+                text-align: center;
+                border-radius: 40px;
+                font-size: 24px;
+                font-family: "pretendard";
+                font-weight: 800;
+                color : $langsedu--color--blue;
+                background-color: $langsedu--color--white;
+                &:hover {
+                    color: $langsedu--background-color;
+                    background-color: $langsedu--color--blue;
+                }
+            }
+        }
+    }
     .bannerSection--background {
         position: absolute;
-        top: 0;
-        left: 0;
         width: 100%;
         height: 100%;
-
         img {
             width: 100%;
             height: 100%;
             border-radius: 50px;
             object-fit: cover;
+        }
+    }
+}
+
+.aboutSection {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 300px 0;
+    padding: 0 40px;
+    gap: 150px;
+    .aboutSection--titles{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 50px;
+        font-family: "notosansJP";
+        .aboutSection--titles__wrap{
+            position: absolute;
+            top: -70%;
+            left: 50%;
+            transform: translateX(-50%);
+            overflow: hidden;
+            h2 {
+                color: $langsedu--color--blue;
+                opacity: 0.12;
+                font-size: 200px;
+                z-index: -1;
+            }
+        }
+        .aboutSection--titles__wrap2{
+            overflow: hidden;
+            strong {
+                font-size: 76px;
+                letter-spacing: -5;
+                color: $langsedu--color--black;
+            }
+        }
+        .aboutSection--titles__wrap3{
+            overflow: hidden;
+            p {
+                font-size: 24px;
+                color: $langsedu--color--black;
+            }
+        }
+    }
+    .aboutSection--inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 50px;
+        .aboutSection--contents {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 60px;
+            .aboutSection--contents__textwrap{
+                width: 50%;
+                overflow: hidden;
+                .aboutSection--contents__discription{
+                    width: 100%;
+                    .aboutSection--contents__discription__wrap {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 40px;
+                        font-family: "notosansJP";
+                        strong {
+                            color: $langsedu--color--blue;
+                            font-size: 64px;
+                        }
+                        p {
+                            color: $langsedu--color--black;
+                            font-size: 22px;
+                        }
+                    }
+                }
+            }
+            .aboutSection--contents__imgwrap{
+                width: 50%;
+                overflow: hidden;
+                .aboutSection--contents__image {
+                    width: 100%;
+                    aspect-ratio: 17 / 9;
+                    div{
+                        width: 100% !important;
+                    }
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        border-radius: 50px;
+                    }
+                }
+            }
+            &:nth-child(2) {
+                div {
+                    text-align: end;
+                }
+            }
+            &:last-child {
+                div {
+                    text-align: end;
+                }
+            }
+        }
+    }
+}
+
+.services {
+    max-width: 80%;
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    padding: 200px 0 ;
+    background-color: $langsedu--color--darkblack;
+    border-radius: 0px;
+    .supportSection {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 100px;
+        .supportSection--title {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            color: $langsedu--background-color;
+            align-items: center;
+            gap: 20px;
+            .supportSection--title--head {
+                width: 80%;
+                display: flex;
+                align-items: center;
+                gap: 40px;
+                span {
+                    width: 80%;
+                    height: 2px;
+                    background-color: $langsedu--background-color;
+                }
+                h2 {
+                    font-family: "pretendard";
+                    font-size: 120px;
+                }
+            }
+            .supportSection--title--sentence{
+                width: 80%;
+                display: flex;
+                justify-content: end;
+                p {
+                    font-size: 28px;
+                    font-family: "notosansJP";
+                    font-weight: 500;
+                }
+            }
+        }
+        .supportSection--contents {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2vw;
+            .supportSection--item {
+                width: 22%;
+                border-radius: 60px;
+                background-color: #fff;
+                overflow: hidden;
+                box-shadow: 5px 5px 20px #00000017;
+                .supportSection--item--image{
+                    width: 100%;
+                    aspect-ratio: 16 / 10;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+                .supportSection--item--discription{
+                    display: flex;
+                    flex-direction: column;
+                    padding: 30px 0 60px 30px;
+                    gap: 6px;
+                    span {
+                        font-family: "pretendard";
+                        color: $langsedu--color--blue;
+                        font-size: 12px;
+                        font-weight: 700;
+                    }
+                    h3 {
+                        font-family: "notosansJP";
+                        font-weight: 700;
+                        font-size: 28px;
+                        color: $langsedu--color--black;
+                    }
+                    p {
+                        font-family: "notosansJP";
+                        font-weight: 300;
+                        font-size: 16px;
+                        color: $langsedu--color--black;
+                        margin-top: 16px;
+                    }
+                }
+            }
+        }
+        button {
+            padding: 25px 50px;
+            border: none;
+            cursor: pointer;
+            color:$langsedu--background-color;
+            background-color: $langsedu--color--black;
+            border-radius: 8px;
+            transition: .3s;
+            &:hover {
+                color: $langsedu--color--black;
+                background-color: #fff;
+                border : 1px solid $langsedu--color--darkblack
+            }
+        }
+    }
+    .programSection {
+        margin: 300px 0 50px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 200px;
+        .programSection--title {
+            text-align: center;
+            .programSection--titles{
+                overflow: hidden;
+                strong {
+                    display: block;
+                    font-family: "notosansJP";
+                    font-weight: bold;
+                    font-size: 120px;
+                    color: $langsedu--color--black;
+                }
+            }
+            .programSection--subtitles{
+                margin-top: 50px;
+                overflow: hidden;
+                p {
+                    display: block;
+                    font-family: "notosansJP";
+                    font-weight: 500;
+                    font-size: 30px;
+                    color: $langsedu--color--black;
+                }
+            }
+        }
+        .programSection--contents {
+            display: flex;
+            gap: 1.6vw;
+            .programSection--item {
+                position: relative;
+                width: 250px;
+                height: 420px;
+                border-radius: 250px;
+                overflow: hidden;
+                &:nth-child(2), &:nth-child(4) {
+                    margin-top: 100px;
+                }
+                &:nth-child(4){
+                    .programSection--item--name{
+                        span {
+                            font-size: 20px;
+                        }
+                    }
+                }
+                .programSection--item--image{
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+                .programSection--item--name {
+                    position: absolute;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-top: 80px;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 10;
+                    span {
+                        font-family: "pretendard";
+                        font-size: 28px;
+                        color: $langsedu--background-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.contentsSection {
+    max-width: 100%;
+    width: calc(100% - 40px);
+    margin: 300px auto;
+    padding: 150px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    box-shadow: 10px 10px 40px #0b0b0b20;
+    border-radius: 100px;
+    .contentsSection--title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        color: $langsedu--color--black;
+        .contentsSection--title__wrap1{
+            overflow: hidden;
+            strong {
+                display: block;
+                font-family: "pretendard";
+                font-size: 82px;
+                font-weight: bold;
+            }
+        }
+        .contentsSection--title__wrap2 {
+            overflow: hidden;
+            span {
+                display: block;
+                font-family: "notosansJP";
+                font-size: 36px;
+            }
+        }
+    }
+    .contentsSection-inner {
+        width: 90%;
+        margin: 0 auto;
+        overflow: hidden;
+        .contentsSection-wrapper{
+            width: 100%;
+            .contentsSection-item {
+                width: 200px;
+                border-radius: 12px;
+                overflow: hidden;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+    .contentsSection--button {
+        padding: 25px 40px;
+        color: $langsedu--background-color;
+        background-color: $langsedu--color--black;
+        border: none;
+        cursor: pointer;
+        transition: .3s;
+        &:hover {
+            color: $langsedu--color--black;
+            background-color: $langsedu--background-color;
+        }
+    }
+}
+
+.snsSection {
+    width: 85%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 150px 0;
+    gap: 100px;
+    .snsSection--title {
+        overflow: hidden;
+        strong {
+            font-family: "Lora";
+            font-weight: 500;
+            font-size: 26px;
+            letter-spacing: 0.6vw;
+            color: $langsedu--color--black;
+        }
+    }
+    .snsSection--container{
+        width: 80%;
+        display: flex;
+        gap: 1em;
+        justify-content: center;
+        .snsSection--item {
+            box-shadow: 0px 0px 10px #0b0b0b13;
+            background-color: #fff;
+            img {
+                padding: 1em;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 30px;
+            }
+        }
+    }
+}
+
+footer {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 300px 0;
+    text-align: center;
+    border-radius: 50px 50px 0 0;
+    background-color: $langsedu--color--blue;
+}
+@media screen and (max-width: 1200px) {
+    header {
+        width: 95vw;
+        top: 20px;
+        .header--inner {
+            padding: 10px 30px;
+            nav ul {
+                gap: 2vw;
+                li {
+                    font-size: 18px;
+                }
+            }
+            .header--button a {
+                font-size: 12px;
+                padding: 10px 20px;
+            }
+        }
+    }
+
+    .bannerSection {
+        height: 600px;
+        .bannerSection--inner {
+            margin: 30px;
+            h2 {
+                font-size: 70px;
+            }
+            .bannserSection--inner--detail p {
+                font-size: 18px;
+            }
+            a {
+                width: 220px;
+                height: 60px;
+                line-height: 60px;
+                font-size: 20px;
+            }
+        }
+    }
+
+    .aboutSection {
+        margin: 200px 0;
+        gap: 100px;
+        .aboutSection--titles {
+            gap: 30px;
+            h2 {
+                font-size: 150px;
+                top: -50%;
+            }
+            strong {
+                font-size: 60px;
+            }
+            p {
+                font-size: 20px;
+            }
+        }
+        .aboutSection--inner {
+            gap: 40px;
+            .aboutSection--contents {
+                gap: 40px;
+                .aboutSection--contents__discription {
+                    width: 50%;
+                    .aboutSection--contents__discription__wrap {
+                        gap: 20px;
+                        strong {
+                            font-size: 50px;
+                        }
+                        p {
+                            font-size: 18px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .services {
+        padding: 100px 0;
+        box-shadow: 5px 5px 20px #33333310;
+        .supportSection {
+            gap: 100px;
+            .supportSection--title {
+                gap: 15px;
+                .supportSection--title--head {
+                    gap: 30px;
+                    h2 {
+                        font-size: 80px;
+                    }
+                }
+                .supportSection--title--sentence p {
+                    font-size: 18px;
+                }
+            }
+            .supportSection--contents {
+                flex-wrap: wrap;
+                gap: 4vw;
+                .supportSection--item {
+                    width: 45%;
+                    .supportSection--item--discription {
+                        padding: 30px 0 40px 30px;
+                        h3 {
+                            font-size: 28px;
+                        }
+                        p {
+                            font-size: 18px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .programSection {
+        gap: 150px;
+        .programSection--title strong {
+            font-size: 100px;
+        }
+        .programSection--contents {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 4vw;
+            .programSection--item {
+                width: 200px;
+                height: 340px;
+                &:nth-child(2), &:nth-child(4) {
+                    margin-top: 50px;
+                }
+                .programSection--item--name span {
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        width: 100vw;
+        border-radius: 0;
+        top: 0;
+        .header--inner {
+            padding: 10px 20px;
+            flex-direction: column;
+            nav {
+                margin-top: 10px;
+                ul {
+                    flex-direction: column;
+                    gap: 10px;
+                }
+            }
+            .header--button {
+                margin-top: 10px;
+                a {
+                    padding: 8px 16px;
+                }
+            }
+        }
+    }
+
+    .bannerSection {
+        height: 400px;
+        .bannerSection--inner {
+            margin: 20px;
+            h2 {
+                font-size: 50px;
+            }
+            .bannserSection--inner--detail p {
+                font-size: 16px;
+            }
+            a {
+                width: 180px;
+                height: 50px;
+                line-height: 50px;
+                font-size: 16px;
+            }
+        }
+    }
+
+    .aboutSection {
+        margin: 150px 0;
+        gap: 80px;
+        .aboutSection--titles {
+            gap: 20px;
+            h2 {
+                font-size: 120px;
+            }
+            strong {
+                font-size: 50px;
+            }
+            p {
+                font-size: 18px;
+            }
+        }
+        .aboutSection--inner {
+            .aboutSection--contents {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                .aboutSection--contents__discription {
+                    width: 90%;
+                    .aboutSection--contents__discription__wrap {
+                        strong {
+                            font-size: 40px;
+                        }
+                        p {
+                            font-size: 16px;
+                        }
+                    }
+                }
+                .aboutSection--contents__image {
+                    width: 90%;
+                }
+            }
+        }
+    }
+
+    .services {
+        padding: 80px 0;
+        .supportSection {
+            gap: 80px;
+            .supportSection--title {
+                gap: 10px;
+                .supportSection--title--head h2 {
+                    font-size: 60px;
+                }
+                .supportSection--title--sentence p {
+                    font-size: 16px;
+                }
+            }
+            .supportSection--contents {
+                flex-direction: column;
+                .supportSection--item {
+                    width: 90%;
+                    .supportSection--item--discription {
+                        padding: 20px;
+                        h3 {
+                            font-size: 24px;
+                        }
+                        p {
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .programSection {
+        gap: 100px;
+        .programSection--title strong {
+            font-size: 80px;
+        }
+        .programSection--contents {
+            flex-direction: column;
+            align-items: center;
+            .programSection--item {
+                width: 180px;
+                height: 300px;
+                &:nth-child(2), &:nth-child(4) {
+                    margin-top: 30px;
+                }
+                .programSection--item--name span {
+                    font-size: 20px;
+                }
+            }
         }
     }
 }
